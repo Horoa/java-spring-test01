@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.romainH.test.model.User;
 import com.romainH.test.repository.UserRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User create(@RequestBody User user) {
+    public User create(@Valid @RequestBody User user) {
 	return repository.save(user);
     }
 
